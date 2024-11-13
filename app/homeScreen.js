@@ -1,36 +1,49 @@
-import React, { useEffect } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { useAuth } from './authContext'; // Путь к AuthContext
-import { useRouter } from 'expo-router';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ItemListScreen from './ItemListScreen';
+import WebPageScreen from './cloudPageScreen';
+import Icon from 'react-native-vector-icons/Ionicons'
+import { Ionicons } from '@expo/vector-icons';
+
+const Tab = createBottomTabNavigator();
 
 export default function HomeScreen() {
-  const { isAuthenticated, logout } = useAuth(); // Используем useAuth
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push('./authScreen'); // Если пользователь не аутентифицирован, редиректим на экран аутентификации
-    }
-  }, [isAuthenticated]);
-
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Добро пожаловать на домашнюю страницу!</Text>
-      <Button title="Выйти" onPress={logout} /> {/* Кнопка выхода */}
-    </View>
-  );
+ return (
+     <Tab.Navigator
+       screenOptions={{
+         tabBarActiveTintColor: '#008CBA',
+         tabBarInactiveTintColor: '#ccc',
+         tabBarStyle: {
+           backgroundColor: '#f2f2f2',
+         },
+       }}
+     >
+       <Tab.Screen
+         name="RPCM list"
+         component={ItemListScreen}
+         options={{
+           tabBarIcon: ({ focused }) => (
+             <Ionicons
+               name={'hardware-chip'}
+               size={25}
+               color={focused ? '#008CBA' : '#ccc'}
+             />
+           ),
+         }}
+       />
+       <Tab.Screen
+         name="RPCM Cloud"
+         component={WebPageScreen}
+         options={{
+           tabBarIcon: ({ focused }) => (
+             <Ionicons
+               name={focused ? 'cloud' : 'cloud-outline'}
+               size={25}
+               color={focused ? '#008CBA' : '#ccc'}
+             />
+           ),
+         }}
+       />
+     </Tab.Navigator>
+   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 16,
-  },
-});

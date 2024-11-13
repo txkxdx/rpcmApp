@@ -11,7 +11,6 @@ export default function AuthScreen() {
 
   const handleLogin = () => {
     login(username, password);
-    router.push('/homeScreen'); // Переход на экран Home после успешного входа
   };
 
   return (

@@ -1,12 +1,27 @@
-// app/_layout.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Slot } from 'expo-router';
-import { AuthProvider } from './authContext'; // Импортируйте AuthProvider
+import { AuthProvider } from './authContext';
+import { useAuth } from './authContext';
+import { useRouter } from 'expo-router';
 
 export default function Layout() {
   return (
     <AuthProvider>
-      <Slot />
+      <AuthenticatedLayout />
     </AuthProvider>
   );
 }
+
+function AuthenticatedLayout() {
+  const { isAuthenticated } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      router.push('/authScreen');
+    }
+  }, [isAuthenticated, router]);
+
+  return <Slot />;
+}
+

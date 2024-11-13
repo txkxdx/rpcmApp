@@ -14,13 +14,13 @@ export function AuthProvider({ children }) {
   const login = (username, password) => {
     if (username === "temik" && password === "12345") {
       setIsAuthenticated(true); // Меняем состояние после успешного входа
-      router.push('./homeScreen'); // Переходим на главный экран
+      router.push('/homeScreen'); // Переходим на главный экран
     }
   };
 
   const logout = () => {
     setIsAuthenticated(false); // Меняем состояние на неаутентифицированного пользователя
-    router.push('./authScreen'); // Возвращаемся на экран аутентификации
+    router.push('/authScreen'); // Возвращаемся на экран аутентификации
   };
 
   return (
