@@ -18,9 +18,9 @@ function AuthenticatedLayout() {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      router.push('/authScreen');
+      router.replace("/authScreen");
     }
-  }, [isAuthenticated, router]);
+  }, [isAuthenticated]);
 
   return <Slot />;
 }

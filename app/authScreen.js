@@ -1,34 +1,32 @@
-import React, { useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet, Image } from 'react-native';
-import { useRouter } from 'expo-router';
-import { useAuth } from './authContext';
+import React, { useState } from "react";
+import { View, TextInput, Button, Text, StyleSheet, Image } from "react-native";
+import { useAuth } from "./authContext";
 
 export default function AuthScreen() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const router = useRouter();
-  const { login } = useAuth(); // Используем useAuth
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login } = useAuth();
 
   const handleLogin = () => {
-    login(username, password);
+    login(email, password);
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.circle}>
         <Image
-          source={require('../assets/images/elephant.jpg')} // Путь к изображению
+          source={require('../assets/images/elephant.jpg')}
           style={styles.circleImage}
-          resizeMode="cover" // Изображение будет обрезано, чтобы полностью заполнить круг
+          resizeMode="cover"
         />
       </View>
 
       <Text style={styles.title}>Вход</Text>
       <TextInput
         style={styles.input}
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
         autoCapitalize="none"
       />
       <TextInput

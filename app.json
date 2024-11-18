@@ -20,8 +20,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "this.koi.myapp"
-
+      "package": "this.koi.myapp",
+      "googleServicesFile": "./assets/google-services.json"
     },
     "web": {
       "bundler": "metro",
@@ -33,6 +33,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a08e4758-dbaa-4714-a3d4-27619346d368"
+      }
     }
   }
 }

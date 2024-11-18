@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "809871522182",
+    "project_id": "rpcmproject",
+    "storage_bucket": "rpcmproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809871522182:android:d65a525e11b5661aa35407",
+        "android_client_info": {
+          "package_name": "this.koi.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzK0bszbNmfIV_STcQVuYV-v2KGVGORC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
