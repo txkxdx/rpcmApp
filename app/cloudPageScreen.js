@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 export default function WebPageScreen() {
-  const ipUrl = 'https://my.rpcm.cloud'; // Замените на нужный IP-адрес
+  const ipUrl = 'https://my.rpcm.cloud';
 
   return (
     <View style={styles.container}>
